@@ -9,7 +9,7 @@ services:
     stdin_open: true 
     tty: true  
     networks: 
-      - evolution-network     
+      - chatwoot-network     
   rails:
     <<: *base
     container_name: chatwoot-rails
@@ -21,7 +21,7 @@ services:
       - NODE_ENV=production
       - RAILS_ENV=production
     networks: 
-      - evolution-network
+      - chatwoot-network
     entrypoint: docker/entrypoints/rails.sh
     command: ['bundle', 'exec', 'rails', 's', '-p', '3000', '-b', '0.0.0.0']
 
@@ -36,7 +36,7 @@ services:
       - NODE_ENV=production
       - RAILS_ENV=production
     networks: 
-      - evolution-network
+      - chatwoot-network
     restart: unless-stopped
     command: ['bundle', 'exec', 'sidekiq', '-C', 'config/sidekiq.yml']
 
@@ -52,7 +52,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=chatwoot
     networks: 
-      - evolution-network
+      - chatwoot-network
   
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -64,7 +64,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - evolution-network
+      - chatwoot-network
 
   redis:
     image: redis:alpine
@@ -76,7 +76,7 @@ services:
     volumes:
       - ./chatwoot/data/redis:/data
     networks: 
-      - evolution-network
+      - chatwoot-network
   
   nginx:
     build: 
@@ -89,11 +89,9 @@ services:
       - "8082:8082" #pgadmin
       - "8083:8083" #redis
     networks: 
-      - evolution-network
-    depends_on:
-      - evolution-api
+      - chatwoot-network
 
 networks: 
-  evolution-network:
-    name: evolution-network
+  chatwoot-network:
+    name: chatwoot-network
     driver: bridge
