@@ -12,7 +12,7 @@ Compilar o codigo
 
     docker-compose up --build --no-start
 
-Apos finalizar o build, deletar as pastas data e depois recria-las data, data/postgres  data/redis.
+Apos finalizar o build, deletar as pastas __data__ e depois recria-las __data__, __data/postgres__ e __data/redis__.
 
     docker-compose run --rm rails bundle exec rails db:chatwoot_prepare
 
