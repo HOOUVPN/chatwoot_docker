@@ -3,8 +3,9 @@ Contem apenas nginx, chatwoot, pgadmin, postgres e redis
 
 # Usando o Chatwoot com Docker
 
-Lembrando que precisa ter o docker instalado e o docker-compose
-Aconselho tambem a mudar as credencias no .env e docker-compose.yaml e for usa na internet.
+Lembrando que precisa ter o docker instalado e o docker-compose.
+
+Aconselho tambem a mudar as credencias no .env e docker-compose.yaml se for usa na internet.
 
 
 Compilar o codigo
