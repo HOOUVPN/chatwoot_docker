@@ -13,7 +13,7 @@ DEFAULT_LOCALE=pt_BR
 ASSET_CDN_HOST=
 
 # Force all access to the app over SSL, default is set to false
-FORCE_SSL=true
+FORCE_SSL=false
 
 # This lets you control new sign ups on your chatwoot installation
 # true : default option, allows sign ups
