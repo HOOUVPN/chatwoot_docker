@@ -86,9 +86,8 @@ services:
     container_name: nginx
     entrypoint: nginx -g "daemon off;"
     ports:
-      - "8081:8081" # Chatwoot
-      - "8082:8082" # pgadmin
-      - "8083:8083" # redis
+      - "80:80"   # HTTP
+      - "443:443" # HTTPS
     networks:
       - chatwoot-network
 
